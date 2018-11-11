@@ -1,0 +1,8 @@
+[submodule "doom-emacs"]
+	path = doom-emacs
+	url = https://github.com/hlissner/doom-emacs
+	branch = develop
+[submodule "emacs2nix"]
+	path = emacs2nix
+	url = https://github.com/ttuegel/emacs2nix
+	branch = master
