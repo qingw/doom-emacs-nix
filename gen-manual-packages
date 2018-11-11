@@ -1,0 +1,18 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -i bash emacs2nix/shell-fetch.nix
+set -euxo pipefail
+
+tmp_dir="/tmp/melpa-recipes"
+mkdir -p "$tmp_dir"
+melpa_dir="$(pwd)/melpa"
+extra_dir="overlays"
+
+# cp "$tmp_dir"/* melpa/recipes
+
+for file in "$tmp_dir"/*; do
+    pkg="$(basename "$file")"
+    pkg_dir="${extra_dir}/${pkg}"
+    mkdir -p "$pkg_dir"
+    melpa2nix --work /tmp/melpa-${pkg} \
+        --melpa "$melpa_dir"  --names emacs2nix/names.nix  -o "${pkg_dir}/default.nix" "$pkg"
+done

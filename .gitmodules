@@ -6,3 +6,7 @@
 	path = emacs2nix
 	url = https://github.com/ttuegel/emacs2nix
 	branch = master
+[submodule "melpa"]
+	path = melpa
+	url = https://github.com/sveitser/melpa
+	branch = master

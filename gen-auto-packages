@@ -1,0 +1,15 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -i bash -p emacs
+set -euxo pipefail
+
+PKGS="$(emacs --batch --script get-auto-packages.el)"
+
+# TODO: blacklist: evil-escape, shrink-path
+
+cat <<EOF > emacs-pkgs.nix
+{ epkgs }:
+with epkgs;
+[
+$PKGS
+]
+EOF
