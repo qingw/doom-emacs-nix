@@ -4,10 +4,8 @@ set -euxo pipefail
 
 tmp_dir="/tmp/melpa-recipes"
 mkdir -p "$tmp_dir"
-melpa_dir="$(pwd)/melpa"
+melpa_dir="$(pwd)/melpa"  # needs absolute path for melpa2nix
 extra_dir="overlays"
-
-# cp "$tmp_dir"/* melpa/recipes
 
 for file in "$tmp_dir"/*; do
     pkg="$(basename "$file")"

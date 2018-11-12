@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
+set -euxo pipefail
 
 rm -rf /tmp/melpa-recipes
+mkdir /tmp/melpa-recipes
 emacs -Q --batch --script get-manual-packages.el
+cp /tmp/melpa-recipes/* melpa/recipes/
 ./gen-manual-packages

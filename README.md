@@ -18,7 +18,7 @@
 
 ##### TODO
 - [ ] Clean up `shell.nix`.
-- [ ] Dynamically load the generated packages.
+- [x] Dynamically load the generated packages.
 - [ ] Test if doom actually works.
 - [ ] Create a nix derivation for doom.
 - [ ] Is there a better way -.-

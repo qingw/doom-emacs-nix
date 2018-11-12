@@ -4,11 +4,11 @@ let
   ps = emacsPackagesNgGen emacs;
   melpaBuild = ps.melpaBuild;
   extraPackages = with ps;
-    (callPackage ./overlays/emacs-snippets { })
-    // (callPackage ./overlays/highlight-escape-sequences { })
-    // (callPackage ./overlays/org-bullets { })
-    // (callPackage ./overlays/org-yt { })
-    // (callPackage ./overlays/rotate-text { })
+    # there must be a better way
+    (builtins.foldl'
+        (acc: s: acc // (callPackage (./overlays + ("/" + s)) {}))
+        { }
+        (builtins.attrNames (builtins.readDir ./overlays)))
     // {
       evil-escape = (evil-escape.overrideAttrs (attrs: {
         patchPhase = ''
