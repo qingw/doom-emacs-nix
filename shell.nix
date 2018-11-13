@@ -21,6 +21,10 @@ let
     // ps.elpaPackages
     // ps.melpaPackages
     // extraPackages;
+  myEpkgs = import ./emacs-pkgs.nix { inherit pkgs epkgs; };
+  doom = with ps; callPackage ./doom.nix {  };
 in
 
-ps.emacsWithPackages ( import ./emacs-pkgs.nix { inherit pkgs epkgs; } )
+ps.emacsWithPackages (
+  ps: (myEpkgs ++ [ doom ])
+  )

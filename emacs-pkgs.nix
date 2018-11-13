@@ -47,12 +47,6 @@ evil-commentary
 evil-easymotion
 evil-embrace
 evil-escape
-# (evil-escape.overrideAttrs (attrs: {
-#      patchPhase = ''
-#        sed -i 's|^ ;;;|;;;|' *.el
-#      '';
-# }))
-
 evil-exchange
 evil-goggles
 evil-indent-plus
